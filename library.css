@@ -9,25 +9,27 @@
     --bookNotRead: #4d194d;
     --background: #272640;
     --hover: #b684c4;
-    --yellow: #4d908e;
+    --green: #abe6dd;
     --shadow: #d3b477;
-    --form: #005f73;
+    --form: #2a3461;
     --formBorder: #001219;
     --button: #eee8aa;
-    --btnBGC: #24a0ed;
+    --btnBGC: #003554;
+    --sidebar: #585076;
 }
 
 .theme-light {
-    --bookRead: #7740af;
+    --bookNotRead: #7740af;
+    --bookRead: #4b40e5;
     --background: #41386b;
     --hover: #b0438a;
-    --yellow: #4d908e;
-    --bookNotRead: #4b40e5;
+    --green: #abe6dd;
     --shadow: #5ca3b4;
     --form: #005f73;
     --formBorder: #001219;
     --button: #eee8aa;
     --btnBGC: #24a0ed;
+    --sidebar: #585076;
 }
 
 html {
@@ -35,6 +37,7 @@ html {
     font-size: 16px;
     color: #000;
     background-color: var(--background);
+    margin: 1%;
 }
 
 body {
@@ -44,11 +47,10 @@ body {
 
 .container {
     display: grid;
-    grid-template-columns: 1fr 6fr;
+    grid-template-columns: 1fr 5fr;
     grid-template-areas:
         "header header"
         "sidebar cards";
-    margin: 1%;
 }
 
 /*HEADER*/
@@ -56,7 +58,7 @@ body {
     display: grid;
     grid-area: header;
     grid-template-columns: 1fr 6fr;
-    color: var(--yellow);
+    color: var(--green);
     font-family: cursive;
     text-align: center;
     font-size: 3rem;
@@ -73,7 +75,6 @@ body {
 
 #imageLeft,
 #imageRight {
-    /* transform: rotate(-9deg); */
     margin: 2% 8% 2% 0;
     width: 15%;
     box-shadow: 5px 5px 100px 40px var(--shadow);
@@ -83,10 +84,8 @@ body {
 }
 
 #imageRight {
-    /* transform: rotate(9deg); */
     margin-left: 8%;
     transform: matrix(-1, 0, 0.2, 1, 0, 0);
-    /* transform: scaleX(-1); */
 }
 
 /*SIDEBAR*/
@@ -94,17 +93,10 @@ body {
     display: flex;
     flex-direction: column;
     grid-area: sidebar;
-    background-color: var(--background);
+    background-color: var(--sidebar);
     border-radius: 5px;
-    min-height: 100vh;
     align-items: center;
-    border: 1px double var(--yellow);
-}
-
-.sidebarButtons {
-    min-height: 55px;
-    max-height: fit-content;
-    margin: 2%;
+    border: 1px double var(--green);
 }
 
 /*CARDS*/
@@ -112,12 +104,12 @@ body {
     display: grid;
     grid-area: cards;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(6, 1fr);
     margin: 0 2%;
     gap: 30px;
+    max-height: 45px;
 }
 
-.ul {
+.card {
     display: flex;
     flex-direction: column;
     list-style-type: none;
@@ -129,12 +121,12 @@ body {
     justify-content: center;
 }
 
-li {
+cardLine {
     color: antiquewhite;
     padding: 2% 0;
 }
 
-.ulBookRead {
+.cardBookRead {
     background-color: var(--bookRead);
     border-left: 20px solid var(--bookRead);
     box-shadow: 20px 20px 50px 10px darkgrey inset;
@@ -147,7 +139,6 @@ li {
 
 .bookID {
     margin-right: auto;
-    /* color: rebeccapurple; */
     font-size: smaller;
 }
 
@@ -167,38 +158,48 @@ li {
     margin-top: auto;
 }
 
-/*FORM*/
-#formAddBook {
+/*FORMS*/
+#formAddBook,
+#formEditBook {
     visibility: hidden;
     /* made visible by js thru a button in the sidebar */
     position: fixed;
     /* this will create a 'pop-up' form */
-    top: 28%;
+    top: 4%;
     left: 20%;
-    width: 50%;
+    width: 55%;
     background: var(--form);
-    border: solid 36px var(--formBorder);
+    border: solid 24px var(--formBorder);
     border-radius: 10px;
     box-shadow: 5px 5px 100px 40px var(--shadow);
 }
 
-#formAddBook input[type=text],
-#formAddBook input[type=number] {
+#formAddBook input,
+#formEditBook input {
     width: 100%;
     height: 2rem;
     text-align: center;
-    /* border-radius: 7px; */
     border: none;
-    background-color: var(--yellow);
-    color: antiquewhite;
+    background-color: var(--green);
+    color: var(--formBorder);
     font-size: 1.7em;
     align-self: center;
 }
 
-.formFieldset>p {
+#formFieldset>p,
+#formEditFieldset>p {
     margin: 3%;
     font-size: 1.1rem;
-    color: var(--yellow);
+    color: var(--green);
+}
+
+#dropdown {
+    font-weight: 900;
+    text-align: center;
+}
+
+#dropdown>p {
+    color: red;
 }
 
 legend {
@@ -209,23 +210,24 @@ legend {
 button {
     color: var(--button);
     font-weight: 600;
-    width: 90%;
+    width: 100%;
     text-align: center;
-    height: 33px;
+    /* height: 100%; */
     border-radius: 7px;
     outline: 1px solid rgb(21, 0, 255);
-    outline-offset: -5px;
+    outline-offset: -4px;
     background-color: var(--btnBGC);
+    min-height: 55px;
 }
 
 #btnSave,
-#btnClose {
-    /* background-color: var(--btnBGC); */
+#btnClose,
+#btnSaveEdit,
+#btnCloseEdit {
     margin: 1%;
     color: var(--button);
     width: 98%;
     outline: none;
-    /* height: 80%; */
 }
 
 deleteIcon {
@@ -233,15 +235,18 @@ deleteIcon {
     outline: none;
 }
 
-#btnSave:hover,
-#btnClose:hover,
+#themeChange,
+#sortByReadButton {
+    margin-top: 3%;
+}
+
 button:hover,
 deleteIcon:hover {
     background-color: var(--hover);
     cursor: pointer;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 920px) {
     .header {
         font-size: 2rem;
     }
@@ -250,54 +255,72 @@ deleteIcon:hover {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    #formAddBook {
-        width: 70%;
-        left: 15%;
+    .card {
+        border-left: var(--bookNotRead) solid 17px;
     }
 
-    .formFieldset>p {
-        font-size: .9rem;
+    #formAddBook,
+    #formEditBook {
+        width: auto;
+        height: auto;
+        top: 0%;
+        left: calc(40% - width);
+        border: solid var(--formBorder) 10px;
+    }
+
+    #formFieldset>p,
+    #formEditFieldset>p {
+        font-size: .7rem;
+        margin: 2%;
     }
 
     legend {
-        font-size: 1.4rem;
+        font-size: 1rem;
     }
 
-    #formAddBook input[type=text],
-    #formAddBook input[type=number] {
-        height: 1.4rem;
+    #formAddBook input,
+    #formEditBook input {
+        height: 1.1rem;
+    }
+
+    button {
+        font-weight: lighter;
+        padding: 0 2%;
+    }
+
+    #btnSave,
+    #btnClose,
+    #btnSaveEdit,
+    #btnCloseEdit {
+        min-height: 0;
+        height: 25px;
     }
 }
 
 @media screen and (max-width: 600px) {
+    html {
+        font-size: 12px;
+    }
+
     .header {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
 
     #cards {
         grid-template-columns: 1fr;
     }
 
-    #formAddBook {
-        width: 80%;
-    }
-
-    .formFieldset>p {
-        font-size: .7rem;
-    }
-
-    #formAddBook input[type=text],
-    #formAddBook input[type=number] {
+    #formAddBook input,
+    #formEditBook input {
         height: 1.1rem;
     }
 
-    legend {
-        font-size: .9rem;
+    button {
+        font-size: .7rem;
     }
 
-    button {
-        font-size: .5rem;
+    #btnSave,
+    #btnClose {
+        height: 10px;
     }
 }
-
-/* @media screen and (max-width: 850px) { */
