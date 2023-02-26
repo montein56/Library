@@ -1,326 +1,327 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .theme-dark {
-    --bookRead: #006466;
-    --bookNotRead: #4d194d;
-    --background: #272640;
-    --hover: #b684c4;
-    --green: #abe6dd;
-    --shadow: #d3b477;
-    --form: #2a3461;
-    --formBorder: #001219;
-    --button: #eee8aa;
-    --btnBGC: #003554;
-    --sidebar: #585076;
+  --bookRead: #006466;
+  --bookNotRead: #4d194d;
+  --background: #272640;
+  --hover: #b684c4;
+  --green: #abe6dd;
+  --shadow: #d3b477;
+  --form: #2a3461;
+  --formBorder: #001219;
+  --button: #eee8aa;
+  --btnBGC: #003554;
+  --sidebar: #585076;
 }
 
 .theme-light {
-    --bookNotRead: #7740af;
-    --bookRead: #4b40e5;
-    --background: #41386b;
-    --hover: #b0438a;
-    --green: #abe6dd;
-    --shadow: #5ca3b4;
-    --form: #005f73;
-    --formBorder: #001219;
-    --button: #eee8aa;
-    --btnBGC: #24a0ed;
-    --sidebar: #585076;
+  --bookNotRead: #7740af;
+  --bookRead: #4b40e5;
+  --background: #41386b;
+  --hover: #b0438a;
+  --green: #abe6dd;
+  --shadow: #5ca3b4;
+  --form: #005f73;
+  --formBorder: #001219;
+  --button: #eee8aa;
+  --btnBGC: #24a0ed;
+  --sidebar: #585076;
 }
 
 html {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 16px;
-    color: #000;
-    background-color: var(--background);
-    margin: 1%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 16px;
+  color: #000;
+  background-color: var(--background);
+  margin: 1%;
 }
 
 body {
-    width: 100%;
-    min-height: 100vh;
+  width: 100%;
+  min-height: 100vh;
 }
 
 .container {
-    display: grid;
-    grid-template-columns: 1fr 5fr;
-    grid-template-areas:
-        "header header"
-        "sidebar cards";
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  grid-template-areas:
+    "header header"
+    "sidebar cards";
 }
 
 /*HEADER*/
 .header {
-    display: grid;
-    grid-area: header;
-    grid-template-columns: 1fr 6fr;
-    color: var(--green);
-    font-family: cursive;
-    text-align: center;
-    font-size: 3rem;
-    font-weight: 2rem;
-    box-shadow: 0 5px 100px 40px var(--shadow);
-    margin-bottom: 1%;
+  display: grid;
+  grid-area: header;
+  grid-template-columns: 1fr 6fr;
+  color: var(--green);
+  font-family: cursive;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 2rem;
+  box-shadow: 0 5px 100px 40px var(--shadow);
+  margin-bottom: 1%;
 }
 
 .banner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #imageLeft,
 #imageRight {
-    margin: 2% 8% 2% 0;
-    width: 15%;
-    box-shadow: 5px 5px 100px 40px var(--shadow);
-    border-radius: 6px;
-    filter: blur(1px);
-    transform: matrix(1, 0, -0.2, 1, 0, 0);
+  margin: 2% 8% 2% 0;
+  width: 15%;
+  box-shadow: 5px 5px 100px 40px var(--shadow);
+  border-radius: 6px;
+  filter: blur(1px);
+  transform: matrix(1, 0, -0.2, 1, 0, 0);
 }
 
 #imageRight {
-    margin-left: 8%;
-    transform: matrix(-1, 0, 0.2, 1, 0, 0);
+  margin-left: 8%;
+  transform: matrix(-1, 0, 0.2, 1, 0, 0);
 }
 
 /*SIDEBAR*/
 .sidebar {
-    display: flex;
-    flex-direction: column;
-    grid-area: sidebar;
-    background-color: var(--sidebar);
-    border-radius: 5px;
-    align-items: center;
-    border: 1px double var(--green);
+  display: flex;
+  flex-direction: column;
+  grid-area: sidebar;
+  background-color: var(--sidebar);
+  border-radius: 5px;
+  align-items: center;
+  border: 1px double var(--green);
 }
 
 /*CARDS*/
 #cards {
-    display: grid;
-    grid-area: cards;
-    grid-template-columns: repeat(3, 1fr);
-    margin: 0 2%;
-    gap: 30px;
-    max-height: 45px;
+  display: grid;
+  grid-area: cards;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0 2%;
+  gap: 30px;
+  max-height: 45px;
 }
 
 .card {
-    display: flex;
-    flex-direction: column;
-    list-style-type: none;
-    background-color: var(--bookNotRead);
-    border-left: var(--bookNotRead) solid 22px;
-    border-radius: 5px;
-    text-align: center;
-    box-shadow: 20px 20px 50px 10px darkgray inset;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  background-color: var(--bookNotRead);
+  border-left: var(--bookNotRead) solid 22px;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 20px 20px 50px 10px darkgray inset;
+  justify-content: center;
 }
 
 cardLine {
-    color: antiquewhite;
-    padding: 2% 0;
+  color: antiquewhite;
+  padding: 2% 0;
 }
 
 .cardBookRead {
-    background-color: var(--bookRead);
-    border-left: 20px solid var(--bookRead);
-    box-shadow: 20px 20px 50px 10px darkgrey inset;
+  background-color: var(--bookRead);
+  border-left: 20px solid var(--bookRead);
+  box-shadow: 20px 20px 50px 10px darkgrey inset;
 }
 
 .bookTitle {
-    font-weight: bolder;
-    font-size: 1.1em;
+  font-weight: bolder;
+  font-size: 1.1em;
 }
 
 .bookID {
-    margin-right: auto;
-    font-size: smaller;
+  margin-right: auto;
+  font-size: smaller;
 }
 
 .readLabel {
-    color: antiquewhite;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: antiquewhite;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
 .readLabel:hover {
-    cursor: pointer;
-    background-color: var(--background);
+  cursor: pointer;
+  background-color: var(--background);
 }
 
 .garbageCan {
-    width: 10%;
-    margin-bottom: 2%;
-    margin-top: auto;
+  width: 10%;
+  margin-bottom: 2%;
+  margin-top: auto;
 }
 
 /*FORMS*/
 #formAddBook,
 #formEditBook {
-    visibility: hidden;
-    /* made visible by js thru a button in the sidebar */
-    position: fixed;
-    /* this will create a 'pop-up' form */
-    top: 4%;
-    left: 20%;
-    width: 55%;
-    background: var(--form);
-    border: solid 24px var(--formBorder);
-    border-radius: 10px;
-    box-shadow: 5px 5px 100px 40px var(--shadow);
+  visibility: hidden;
+  /* made visible by js thru a button in the sidebar */
+  position: fixed;
+  /* this will create a 'pop-up' form */
+  top: 4%;
+  left: 20%;
+  width: 55%;
+  background: var(--form);
+  border: solid 24px var(--formBorder);
+  border-radius: 10px;
+  box-shadow: 5px 5px 100px 40px var(--shadow);
 }
 
 #formAddBook input,
 #formEditBook input {
-    width: 100%;
-    height: 2rem;
-    text-align: center;
-    border: none;
-    background-color: var(--green);
-    color: var(--formBorder);
-    font-size: 1.7em;
-    align-self: center;
+  width: 100%;
+  height: 2rem;
+  text-align: center;
+  border: none;
+  background-color: var(--green);
+  color: var(--formBorder);
+  font-size: 1.7em;
+  align-self: center;
 }
 
-#formFieldset>p,
-#formEditFieldset>p {
-    margin: 3%;
-    font-size: 1.1rem;
-    color: var(--green);
+#formFieldset > p,
+#formEditFieldset > p {
+  margin: 3%;
+  font-size: 1.1rem;
+  color: var(--green);
 }
 
 #dropdown {
-    font-weight: 900;
-    text-align: center;
+  font-weight: 900;
+  text-align: center;
 }
 
-#dropdown>p {
-    color: red;
+#dropdown > p {
+  color: red;
 }
 
 legend {
-    color: #eee8aa;
-    font-size: 2rem;
+  color: #eee8aa;
+  font-size: 2rem;
 }
 
 button {
-    color: var(--button);
-    font-weight: 600;
-    width: 100%;
-    text-align: center;
-    /* height: 100%; */
-    border-radius: 7px;
-    outline: 1px solid rgb(21, 0, 255);
-    outline-offset: -4px;
-    background-color: var(--btnBGC);
-    min-height: 55px;
+  color: var(--button);
+  font-weight: 600;
+  width: 100%;
+  text-align: center;
+  /* height: 100%; */
+  border-radius: 7px;
+  outline: 1px solid rgb(21, 0, 255);
+  outline-offset: -4px;
+  background-color: var(--btnBGC);
+  min-height: 55px;
 }
 
 #btnSave,
 #btnClose,
 #btnSaveEdit,
 #btnCloseEdit {
-    margin: 1%;
-    color: var(--button);
-    width: 98%;
-    outline: none;
+  margin: 1%;
+  color: var(--button);
+  width: 98%;
+  outline: none;
 }
 
 deleteIcon {
-    margin-left: 2%;
-    outline: none;
+  margin-left: 2%;
+  outline: none;
 }
 
 #themeChange,
 #sortByReadButton {
-    margin-top: 3%;
+  margin-top: 3%;
 }
 
 button:hover,
 deleteIcon:hover {
-    background-color: var(--hover);
-    cursor: pointer;
+  background-color: var(--hover);
+  cursor: pointer;
 }
 
 @media screen and (max-width: 920px) {
-    .header {
-        font-size: 2rem;
-    }
+  .header {
+    font-size: 2rem;
+  }
 
-    #cards {
-        grid-template-columns: repeat(2, 1fr);
-    }
+  #cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-    .card {
-        border-left: var(--bookNotRead) solid 17px;
-    }
+  .card {
+    border-left: var(--bookNotRead) solid 17px;
+  }
 
-    #formAddBook,
-    #formEditBook {
-        width: auto;
-        height: auto;
-        top: 0%;
-        left: calc(40% - width);
-        border: solid var(--formBorder) 10px;
-    }
+  #formAddBook,
+  #formEditBook {
+    width: auto;
+    height: auto;
+    top: 0%;
+    left: calc(40% - width);
+    border: solid var(--formBorder) 10px;
+  }
 
-    #formFieldset>p,
-    #formEditFieldset>p {
-        font-size: .7rem;
-        margin: 2%;
-    }
+  #formFieldset > p,
+  #formEditFieldset > p {
+    font-size: 0.7rem;
+    margin: 2%;
+  }
 
-    legend {
-        font-size: 1rem;
-    }
+  legend {
+    font-size: 1rem;
+  }
 
-    #formAddBook input,
-    #formEditBook input {
-        height: 1.1rem;
-    }
+  #formAddBook input,
+  #formEditBook input {
+    height: 1.1rem;
+  }
 
-    button {
-        font-weight: lighter;
-        padding: 0 2%;
-    }
+  button {
+    font-weight: lighter;
+    padding: 0 2%;
+  }
 
-    #btnSave,
-    #btnClose,
-    #btnSaveEdit,
-    #btnCloseEdit {
-        min-height: 0;
-        height: 25px;
-    }
+  #btnSave,
+  #btnClose,
+  #btnSaveEdit,
+  #btnCloseEdit {
+    min-height: 0;
+    height: 25px;
+  }
 }
 
 @media screen and (max-width: 600px) {
-    html {
-        font-size: 12px;
-    }
+  html {
+    font-size: 12px;
+  }
 
-    .header {
-        font-size: 1.2rem;
-    }
+  .header {
+    font-size: 1.2rem;
+  }
 
-    #cards {
-        grid-template-columns: 1fr;
-    }
+  #cards {
+    grid-template-columns: 1fr;
+  }
 
-    #formAddBook input,
-    #formEditBook input {
-        height: 1.1rem;
-    }
+  #formAddBook input,
+  #formEditBook input {
+    height: 1.1rem;
+  }
 
-    button {
-        font-size: .7rem;
-    }
+  button {
+    font-size: 0.7rem;
+  }
 
-    #btnSave,
-    #btnClose {
-        height: 10px;
-    }
+  #btnSave,
+  #btnClose {
+    height: 10px;
+  }
 }

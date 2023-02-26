@@ -1,0 +1,19 @@
+{
+  "name": "library",
+  "version": "1.0.0",
+  "description": "This is an app that you can use to store the details of books you have read and would like to read. The app can be tailored to store the names of movies, favorite foods, restaurants and other similar things. It would be possible to add an edit feature that will allow changes to be made to an existing 'book'. 21 Apr 2022: Edit feature is now in place.",
+  "main": "library.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/montein56/Library.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/montein56/Library/issues"
+  },
+  "homepage": "https://github.com/montein56/Library#readme"
+}

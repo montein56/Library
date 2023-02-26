@@ -1,91 +1,159 @@
 <!DOCTYPE html>
 <html lang="en" class="theme-light">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="library.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link rel="stylesheet" href="library.css" />
     <script src="library.js" defer></script>
     <title>Library</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <container class="container">
-        <div class="header">
-            <div id="logo">
-            </div>
-            <div class="banner">
-                <img id="imageLeft" src="./claudia-wolff-MiJTU6lqksg-unsplash.jpg" alt="">
-                <p>LIBRARY OF BOOKS</p>
-                <img id="imageRight" src="./claudia-wolff-MiJTU6lqksg-unsplash.jpg" alt="">
-            </div>
+      <div class="header">
+        <div id="logo"></div>
+        <div class="banner">
+          <img
+            id="imageLeft"
+            src="./claudia-wolff-MiJTU6lqksg-unsplash.jpg"
+            alt=""
+          />
+          <p>LIBRARY OF BOOKS</p>
+          <img
+            id="imageRight"
+            src="./claudia-wolff-MiJTU6lqksg-unsplash.jpg"
+            alt=""
+          />
         </div>
-        <div class="sidebar">
-            <button type="button" class="sidebarButtons" id="" onclick="showForm()">Add New Book</button>
-            <button type="button" class="sidebarButtons" id="" onclick="editBook()">Edit Book</button>
-            <button type="button" class="sidebarButtons" id="sortByReadButton" onclick="sortIfRead()">Sort By
-                Read</button>
-            <button type="button" class="sidebarButtons" id="" onclick="sortByTitle()">Sort By Title</button>
-            <button type="button" class="sidebarButtons" id="" onclick="sortByAuthor()">Sort By Author</button>
-            <button type="button" class="sidebarButtons" id="" onclick="sortByNumber()">Sort By ID</button>
-            <button type="button" class="sidebarButtons" id="themeChange" onclick="changeTheme()">Change Theme</button>
-        </div>
-        <div id="cards">
-        </div>
+      </div>
+      <div class="sidebar">
+        <button type="button" class="sidebarButtons" id="" onclick="showForm()">
+          Add New Book
+        </button>
+        <button type="button" class="sidebarButtons" id="" onclick="editBook()">
+          Edit Book
+        </button>
+        <button
+          type="button"
+          class="sidebarButtons"
+          id="sortByReadButton"
+          onclick="sortIfRead()"
+        >
+          Sort By Read
+        </button>
+        <button
+          type="button"
+          class="sidebarButtons"
+          id=""
+          onclick="sortByTitle()"
+        >
+          Sort By Title
+        </button>
+        <button
+          type="button"
+          class="sidebarButtons"
+          id=""
+          onclick="sortByAuthor()"
+        >
+          Sort By Author
+        </button>
+        <button
+          type="button"
+          class="sidebarButtons"
+          id=""
+          onclick="sortByNumber()"
+        >
+          Sort By ID
+        </button>
+        <button
+          type="button"
+          class="sidebarButtons"
+          id="themeChange"
+          onclick="changeTheme()"
+        >
+          Change Theme
+        </button>
+      </div>
+      <div id="cards"></div>
     </container>
 
     <form id="formAddBook">
-        <fieldset id="formFieldset">
-            <legend>ADD BOOK TO LIBRARY</legend>
-            <p><label for="title">BOOK NAME*</label>
-                <input type="text" id="title">
-            </p>
-            <p>
-                <label for="author">AUTHOR</label>
-                <input type="text" id="author">
-            </p>
-            <p>
-                <label for="pages">NUMBER OF PAGES</label>
-                <input type="number" id="pages">
-            </p>
-            <p>
-                <label for="read">CHECK THE CHECKBOX BELOW IF YOU HAVE READ IT</label>
-                <input type="checkbox" id="read">
-            </p>
-            <button type="button" id="btnSave" onclick="saveBook()">SAVE NEW BOOK</button>
-            <button type="button" id="btnClose" onclick="closeForm()">CLOSE FORM</button>
-        </fieldset>
+      <fieldset id="formFieldset">
+        <legend>ADD BOOK TO LIBRARY</legend>
+        <p>
+          <label for="title">*BOOK NAME</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            placeholder="Enter the book name [required]"
+          />
+        </p>
+        <p>
+          <label for="author">*AUTHOR</label>
+          <input
+            type="text"
+            id="author"
+            name="author"
+            placeholder="Enter the Author [required]"
+          />
+        </p>
+        <p>
+          <label for="pages">NUMBER OF PAGES</label>
+          <input type="number" id="pages" name="pages" />
+        </p>
+        <p>
+          <label for="read">CHECK THE CHECKBOX BELOW IF YOU HAVE READ IT</label>
+          <input type="checkbox" id="read" name="read" />
+        </p>
+        <button type="button" id="btnSave" onclick="saveBook()">
+          SAVE NEW BOOK
+        </button>
+        <button type="button" id="btnClose" onclick="closeForm()">
+          CLOSE FORM
+        </button>
+      </fieldset>
     </form>
 
     <form id="formEditBook">
-        <fieldset id="formEditFieldset">
-            <legend>EDIT BOOK DETAILS</legend>
+      <fieldset id="formEditFieldset">
+        <legend>EDIT BOOK DETAILS</legend>
 
-            <p id="dropdown"><input name="optionsList" list="datalistOptions">Select book from dropdown above. Make
-                changes below.</p>
-            <datalist id="datalistOptions"></datalist>
-            <p><label for="titleEdit">BOOK NAME*</label>
-                <input type="text" class="toHide" id="titleEdit">
-            </p>
-            <p>
-                <label for="authorEdit">AUTHOR</label>
-                <input type="text" class="toHide" id="authorEdit">
-            </p>
-            <p>
-                <label for="pagesEdit">NUMBER OF PAGES</label>
-                <input type="number" class="toHide" id="pagesEdit">
-            </p>
-            <p>
-                <label for="readEdit">CHECK THE CHECKBOX BELOW IF YOU HAVE READ IT</label>
-                <input type="checkbox" class="toHide" id="readEdit">
-            </p>
-            <button type="button" id="btnSaveEdit" onclick="saveEdit()">SAVE CHANGES TO BOOK</button>
-            <button type="button" id="btnCloseEdit" onclick="closeEditForm()">CLOSE FORM</button>
-        </fieldset>
+        <p id="dropdown">
+          <input name="optionsList" list="datalistOptions" />Select book from
+          dropdown above. Make changes below.
+        </p>
+        <datalist id="datalistOptions"></datalist>
+        <p>
+          <label for="titleEdit">BOOK NAME*</label>
+          <input type="text" class="toHide" id="titleEdit" />
+        </p>
+        <p>
+          <label for="authorEdit">AUTHOR</label>
+          <input type="text" class="toHide" id="authorEdit" />
+        </p>
+        <p>
+          <label for="pagesEdit">NUMBER OF PAGES</label>
+          <input type="number" class="toHide" id="pagesEdit" />
+        </p>
+        <p>
+          <label for="readEdit"
+            >CHECK THE CHECKBOX BELOW IF YOU HAVE READ IT</label
+          >
+          <input type="checkbox" class="toHide" id="readEdit" />
+        </p>
+        <button type="button" id="btnSaveEdit" onclick="saveEdit()">
+          SAVE CHANGES TO BOOK
+        </button>
+        <button type="button" id="btnCloseEdit" onclick="closeEditForm()">
+          CLOSE FORM
+        </button>
+      </fieldset>
     </form>
-
-</body>
-
+  </body>
 </html>
